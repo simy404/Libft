@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	iterate_space(const char *c)
+int iterate_space(const char *c)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (c[i] == ' ' || (c[i] >= 9 && c[i] <= 13))
@@ -20,9 +20,9 @@ int	iterate_space(const char *c)
 	return (i);
 }
 
-int	get_sign(const char *c, int *i)
+int get_sign(const char *c, int *i)
 {
-	int	count;
+	int count;
 
 	count = 0;
 	while (c[*i] == '-' || c[*i] == '+')
@@ -37,11 +37,11 @@ int	get_sign(const char *c, int *i)
 		return (-1);
 }
 
-int	ft_atoi(const char *str)
+int ft_atoi(const char *str)
 {
-	int	total;
-	int	sign;
-	int	i;
+	int total;
+	int sign;
+	int i;
 
 	total = 0;
 	i = iterate_space(str);

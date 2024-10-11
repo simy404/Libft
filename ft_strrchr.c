@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsamir <hsamir@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: hsamir <hsamir@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 21:10:36 by hsamir            #+#    #+#             */
-/*   Updated: 2024/10/07 21:10:37 by hsamir           ###   ########.tr       */
+/*   Created: 2024/10/11 19:59:26 by hsamir            #+#    #+#             */
+/*   Updated: 2024/10/11 19:59:26 by hsamir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strchr(const char *s, int c)
-{
-    int i;
+#include "libft.h"
 
-    i = 0;
+char *ft_strrchr(const char *s, int c)
+{
+    size_t i;
+
+    i = ft_strlen((char*)s) - 1;
+
     if (!s || c < 0)
     {
         return ((char*)0);
@@ -23,11 +26,9 @@ char *ft_strchr(const char *s, int c)
 
     while(s[i] && s[i] != c)
     {
-        i++;
+        i--;
     }
 
     return ((char*)s + i);
 }
-
-
 
