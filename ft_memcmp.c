@@ -31,25 +31,3 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	return (s1_mem[i] - s2_mem[i]);
 }
-
-#include "string.h"
-#include "stdio.h"
-
-int main()
-{
-	// const void* s1 = "motive";
-	// const void* s2 = "motives";
-	int h = 6;
-	int* i = &h;
-	char str2[] = "abc\0xyz";
-
-	printf("%d\n",ft_memcmp(i, str2, 6));
-	//printf("%d\n",memcmp(str1, str2, 6));
-
-	char s1[] = { 127, -128, 0 };
-	char s2[] = { 127, 128, 0 };
-	int result = ft_memcmp(s1, s2, 0);
-	int result2 = memcmp(s1, s2, 0);
-	printf("%d\n", result);
-	printf("%d\n", result2);
-}
