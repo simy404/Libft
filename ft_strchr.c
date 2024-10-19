@@ -10,24 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char *ft_strchr(const char *s, int c)
 {
     int i;
+    int j;
 
-    i = 0;
-    if (!s || c < 0)
+    i = ft_strlen(s);
+    j = 0;
+    if (!s)
+        return (0);
+    while(i >= 0)
     {
-        return ((char*)0);
+        if(s[j] == (char)c)
+            return ((char*)s + j);
+        i--;
+        j++;
     }
 
-
-    while(s[i] && s[i] != c)
-    {
-        i++;
-    }
-
-    return ((char*)s + i);
+    return (0);
 }
 
-
-
+// #include "stdio.h"
+// #include "string.h"
+// int main()
+// {
+//     printf("%s", ft_strchr("teste", 'x'));
+// }
