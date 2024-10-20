@@ -59,7 +59,7 @@ int main()
 	char* t1 = NULL;
 	char dest[25];
 	//memcpy(src + 5, src, 5);
-	char* result = memcpy(src, t2, 0);
+	char* result = memcpy(t1, src, 1);
 	if(result)
 		printf("%s", result);
 	else
