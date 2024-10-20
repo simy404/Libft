@@ -30,12 +30,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 
-	if (!big || !little)
-		return (0);
 	if (!little[0])
 		return ((char *)big);
 	i = 0;
-	while (big[i] && len > 0)
+	while (big[i] && len - i > 0)
 	{
 		if (big[i] == little[0])
 		{
@@ -46,3 +44,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	printf("%s", ft_strnstr("lorem ipsum dolor sit amet", "sit", 10));
+// }
