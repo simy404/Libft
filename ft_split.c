@@ -12,10 +12,20 @@
 
 #include "libft.h"
 
-int word_count(const char* s, char c)
+int	letter_count(const char *s, char c)
 {
-	int i;
-	int count;
+	int	i;
+
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
+}
+
+int	word_count(const char *s, char c)
+{
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -24,8 +34,7 @@ int word_count(const char* s, char c)
 		if (s[i] != c)
 		{
 			count++;
-			while (s[i] && s[i] != c)
-				i++;
+			i += letter_count(s + i, c);
 		}
 		else
 			i++;
@@ -33,27 +42,38 @@ int word_count(const char* s, char c)
 	return (count);
 }
 
-char **ft_split(char const *s, char c)
+char	**free_arr(char **arr, int i)
 {
-	char ** arr;
-	int i;
-	int word_len;
+	while (i >= 0)
+	{
+		free(arr[i]);
+		i--;
+	}
+	free(arr);
+	return (0);
+}
 
-	i = 0;
+char	**ft_split(char const *s, char c)
+{
+	char	**arr;
+	int		i;
+
+	if (!s)
+		return (0);
 	arr = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
 	if (!arr)
 		return (0);
-	while(*s)
+	i = 0;
+	while (*s)
 	{
 		if (*s == c)
 			s++;
 		else
 		{
-			word_len = 0;
-			while (s[word_len] && s[word_len] != c)
-				word_len++;
-			arr[i] = ft_substr(s, 0, word_len);
-			s += word_len;
+			arr[i] = ft_substr(s, 0, letter_count(s, c));
+			if (!arr[i])
+				return (free_arr(arr, i - 1));
+			s += letter_count(s, c);
 			i++;
 		}
 	}
