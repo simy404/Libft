@@ -34,9 +34,11 @@ int	determine_sign(const char *c, int *i)
 	return (sign);
 }
 
+#include "stdio.h"
+
 int	ft_atoi(const char *str)
 {
-	int	total;
+	int						total;
 	int	sign;
 	int	i;
 
@@ -49,4 +51,5 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (sign * total);
+	 						 
 }

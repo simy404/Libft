@@ -27,28 +27,22 @@ int	get_last_position(char const *str, char const *set)
 	int	i;
 
 	i = ft_strlen(str) - 1;
-	while (str[i] && ft_strchr(set, str[i]))
+	while (i > 0 && str[i] && ft_strchr(set, str[i]))
 		i--;
 	return (i);
 }
 
+#include "stdio.h"
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	// char *str;
 	int	start;
 	int	end;
-	// int len;
 
-	if (!s1)
+	if (!s1)              
 		return (0);
 	start = get_first_position(s1, set);
 	end = get_last_position(s1, set);
 	if (start > end)
 		return (ft_strdup(""));
-	// len = end - start + 1;
-	// str = (char *)malloc(len + 1);
-	// if (!str)
-	// 	return (0);
-	// ft_strlcpy(str, s1 + start, len + 1);
 	return (ft_substr(s1, start, end - start + 1));
 }

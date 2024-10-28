@@ -15,5 +15,7 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME)
 re: fclean all
-
+bonus:
+	gcc $(FLAG) -c $(BONUS)
+	ar rc $(NAME) *.o
 .PHONY: all bonus clean fclean re
