@@ -32,7 +32,6 @@ int	get_last_position(char const *str, char const *set)
 	return (i);
 }
 
-#include "stdio.h"
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int	start;

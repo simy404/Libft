@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	skip_whitespace(const char *c)
+static	int	skip_whitespace(const char *c)
 {
 	int	i;
 
@@ -20,7 +20,7 @@ int	skip_whitespace(const char *c)
 	return (i);
 }
 
-int	determine_sign(const char *c, int *i)
+static int	determine_sign(const char *c, int *i)
 {
 	int	sign;
 
@@ -34,11 +34,9 @@ int	determine_sign(const char *c, int *i)
 	return (sign);
 }
 
-#include "stdio.h"
-
 int	ft_atoi(const char *str)
 {
-	int						total;
+	int	total;
 	int	sign;
 	int	i;
 
@@ -51,5 +49,4 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (sign * total);
-	 						 
 }

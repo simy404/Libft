@@ -10,17 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-static	int	is_match(const char *big, const char *little, size_t len)
+static	int	is_match(const char *big, const char *little, size_t i, size_t len)
 {
-	size_t	i;
+	size_t j;
 
-	i = 0;
-	while (big[i] && little[i] && big[i] == little[i] && i < len)
+	j = 0;
+	while (big[i] && big[i] == little[j] && i < len)
 	{
 		i++;
-		if (!little[i])
+		j++;
+		if (!little[j])
 			return (1);
 	}
 	return (0);
@@ -35,11 +36,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	i = 0;
 	while (big[i] && i < len)
 	{
-		if (big[i] == little[0])
-		{
-			if (is_match((big + i), little, len - i))
-				return ((char *)big + i);
-		}
+		if (big[i] == little[0] && is_match(big, little, i, len))
+			return ((char *)big + i);
 		i++;
 	}
 	return (0);
