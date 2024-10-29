@@ -17,7 +17,7 @@ static	int	is_match(const char *big, const char *little, size_t len)
 	size_t	i;
 
 	i = 0;
-	while (big[i] && little[i] && big[i] == little[i] && len-- > 0)
+	while (big[i] && little[i] && big[i] == little[i] && i < len)
 	{
 		i++;
 		if (!little[i])
@@ -33,9 +33,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (!little[0])
 		return ((char *)big);
 	i = 0;
-	while (big[i] && len - i > 0)
+	while (big[i] && i < len)
 	{
-		if (big[i] == little[0])
+		if (g)
 		{
 			if (is_match((big + i), little, len - i))
 				return ((char *)big + i);
@@ -44,9 +44,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-// 	printf("%s", ft_strnstr("lorem ipsum dolor sit amet", "sit", 10));
-// }

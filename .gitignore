@@ -2,6 +2,7 @@ a.out
 fd_test
 .vscode
 .DS_Store
+main.c
 
 # Prerequisites
 *.d
