@@ -14,7 +14,7 @@
 
 static	int	is_match(const char *big, const char *little, size_t i, size_t len)
 {
-	size_t j;
+	size_t	j;
 
 	j = 0;
 	while (big[i] && big[i] == little[j] && i < len)
@@ -34,7 +34,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (!little[0])
 		return ((char *)big);
 	i = 0;
-	while (big[i] && i < len)
+	while (i < len && big[i])
 	{
 		if (big[i] == little[0] && is_match(big, little, i, len))
 			return ((char *)big + i);
