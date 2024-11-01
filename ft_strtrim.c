@@ -37,7 +37,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int	start;
 	int	end;
 
-	if (!s1)              
+	if (!s1)
 		return (0);
 	start = get_first_position(s1, set);
 	end = get_last_position(s1, set);
