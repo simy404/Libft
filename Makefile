@@ -57,12 +57,9 @@ all: $(NAME)
 bonus: $(B_OBJ)
 	ar rcs $(NAME) $(B_OBJ)
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
-
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
+
 clean:
 	rm -rf $(OBJ)
 fclean: clean
