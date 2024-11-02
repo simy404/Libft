@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-int	letter_count(const char *s, char c)
+static int	letter_count(const char *s, char c)
 {
 	int	i;
 
@@ -22,7 +23,7 @@ int	letter_count(const char *s, char c)
 	return (i);
 }
 
-int	word_count(const char *s, char c)
+static int	word_count(const char *s, char c)
 {
 	int	i;
 	int	count;
@@ -42,7 +43,7 @@ int	word_count(const char *s, char c)
 	return (count);
 }
 
-char	**free_arr(char **arr, int i)
+static char	**free_arr(char **arr, int i)
 {
 	while (i >= 0)
 	{

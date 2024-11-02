@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 
 static	int	is_match(const char *big, const char *little, size_t i, size_t len)
 {

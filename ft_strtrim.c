@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	get_first_position(char const *str, char const *set)
+static int	get_first_position(char const *str, char const *set)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	get_first_position(char const *str, char const *set)
 	return (i);
 }
 
-int	get_last_position(char const *str, char const *set)
+static int	get_last_position(char const *str, char const *set)
 {
 	int	i;
 
@@ -37,7 +37,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int	start;
 	int	end;
 
-	if (!s1)
+	if (!s1 || !set)
 		return (0);
 	start = get_first_position(s1, set);
 	end = get_last_position(s1, set);

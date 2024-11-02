@@ -1,5 +1,5 @@
 NAME = libft.a
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 CC = cc
 SRC = ft_atoi.c			\
 ft_bzero.c				\
@@ -48,22 +48,25 @@ ft_toupper.c		\
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
  ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-B_OBJ =	$(B:.c=.o)
+ifneq ($(filter bonus,$(MAKECMDGOALS)),)
+SRC += $(BONUS)
+endif
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-bonus: $(B_OBJ)
-	ar rcs $(NAME) $(B_OBJ)
+bonus: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
+
+f: fclean
 
 re: fclean all
 
